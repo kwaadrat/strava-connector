@@ -1,14 +1,26 @@
 import requests
 import urllib3
-import json
+import pandas as pd
 urllib3.disable_warnings(urllib3.exceptions.InsecureRequestWarning)
+
+# API url to all activities.
 
 activites_url = "https://www.strava.com/api/v3/athlete/activities"
 
-access_token = "794fa0f4dbf982dcec1c48358924700849665ba1"
+# Access token.
+
+access_token = "<token>"
+
+# Request.
 
 header = {'Authorization': 'Bearer ' + access_token}
 param = {'per_page': 1, 'page': 1}
 my_dataset = requests.get(activites_url, headers=header, params=param).json()
 
+# Print data from API.
+
 print(my_dataset)
+
+# Save data to csv
+
+my_dataset.to_csv('strava.csv')
