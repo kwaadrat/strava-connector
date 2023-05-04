@@ -11,7 +11,7 @@ with open('strava_token.json', 'r') as token:
 access_token = data['access_token']
 
 # Build the API url to get athlete info
-athlete_url = f"https://www.strava.com/api/v3/athlete?912645" \
+athlete_url = f"https://www.strava.com/api/v3/athlete?" \
               f"access_token={access_token}"
 
 # Get the response in json format
